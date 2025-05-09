@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 点格子游戏
 
-## Getting Started
+一个简单而有趣的点格子游戏，使用 Next.js 和 React 开发。
 
-First, run the development server:
+## 游戏说明
+
+这是一个需要动脑思考的益智小游戏，目标是将所有格子变成橙色。
+
+### 基本规则
+- 游戏开始时，棋盘上会随机出现白色和橙色的格子
+- 点击任意一个格子，会同时改变该格子及其上下左右相邻格子的颜色
+- 白色格子会变成橙色，橙色格子会变成白色
+- 当所有格子都变成橙色时，游戏获胜
+
+### 游戏特点
+1. **棋盘大小选择**
+   - 提供 3x3、4x4、5x5、6x6 四种不同大小的棋盘
+   - 难度随棋盘大小递增
+
+2. **最优解提示**
+   - 每个关卡都有最少点击次数的解法
+   - 游戏会显示完成当前局面所需的最少点击次数
+   - 可以通过"显示提示"按钮查看推荐的点击位置
+
+3. **游戏功能**
+   - 随机刷新：生成新的随机棋盘
+   - 重玩本局：使用相同的初始布局重新开始
+   - 重新选择棋盘：返回选择棋盘大小的界面
+
+4. **游戏统计**
+   - 实时显示当前点击次数
+   - 显示最少需要的点击次数
+   - 如果超过最少点击次数，会显示超出步数
+
+### 游戏技巧
+- 观察棋盘布局，规划点击顺序
+- 利用提示功能学习最优解法
+- 有时看似远离目标的点击可能是解决问题的关键
+- 注意相邻格子的连锁反应
+
+## 技术栈
+
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+
+## 本地开发
+
+1. 克隆项目
+
+```bash
+git clone [你的仓库地址]
+cd click_toy
+```
+
+2. 安装依赖
+
+```bash
+npm install
+# 或
+yarn install
+# 或
+pnpm install
+```
+
+3. 启动开发服务器
 
 ```bash
 npm run dev
-# or
+# 或
 yarn dev
-# or
+# 或
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. 在浏览器中打开 [http://localhost:3000](http://localhost:3000) 即可开始游戏
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 项目结构
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+click_toy/
+├── app/                # Next.js 应用主目录
+├── components/         # React 组件
+│   └── Chessboard/    # 棋盘相关组件
+├── public/            # 静态资源
+└── styles/            # 样式文件
+```
 
-## Learn More
+## 构建部署
 
-To learn more about Next.js, take a look at the following resources:
+要构建生产版本，运行：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+# 或
+yarn build
+# 或
+pnpm build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+构建完成后，可以使用 `npm run start` 启动生产服务器。
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
